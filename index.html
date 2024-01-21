@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>SuperSearch</title>
+    <style>
+         @media screen and (max-width: 500px){
+        .button {
+            width: 22%;
+            padding: 4px;
+        }
+        .footer {
+            margin-top: 50%;
+        }
+        }
+        @media screen and (min-width: 501px){ 
+        .button {
+            width: 10%;
+            padding: 4px;
+        }
+        .footer {
+            margin-top: 16%;
+        }
+        }
+        html {
+            background-color: white;
+            font-family: sans-serif, Arial;
+        }
+        .button {
+            background-color: white;
+        }
+        .button:hover {
+            border-radius: 3px;
+            background-color: rgb(201, 240, 255);
+        }
+        #search_box {
+            width: 75%;
+            padding: 13px;
+            font-size: large;
+            margin-bottom: 5px;
+            margin-top: 100px;
+        }
+        #search_box:hover {
+            background: linear-gradient(to right, white, rgb(201, 240, 255));
+        }
+        input {
+            border: solid 2px black;
+        }
+        select {
+            border: solid 2px black;
+            padding: 4px;
+        }
+        .footer {
+            background-color: rgb(248, 244, 244);
+        }
+    </style>
+    <script>
+        function g_search() {
+            var word = search_box.value;
+            window.open(`https://www.google.com/search?q=${word}`);
+        }
+        function e_search() {
+            var word = search_box.value;
+            window.open(`https://www.ecosia.org/search?method=index&q=${word}`);
+        }
+        function b_search() {
+            var word = search_box.value;
+            window.open(`https://www.bing.com/search?pglt=675&q=${word}`);
+        }
+        function y_search() {
+            var word = search_box.value;
+            window.open(`https://search.yahoo.co.jp/search?p=${word}`);
+        }
+        function start_search() {
+            var word = search_box.value;
+            var link = select.value;
+            window.open(`${link}${word}`);
+        }
+        setInterval(() => {
+            var time = new Date().toLocaleString();
+            document.getElementById('timehere').innerHTML = time;
+        })
+    </script>
+</head>
+<body>
+    <h1>SuperSearch</h1>
+    <br>
+    <span id="timehere"></span>
+    <center>
+    <form>
+    <input type="text" id="search_box">
+    <input type="reset" style="width: 30px; height: 30px" class="button" value="&times;">
+    <br>
+    <input type="button" class="button" value="Google" onclick="g_search()">
+    <input type="button" class="button" value="Ecosia" onclick="e_search()">
+    <input type="button" class="button" value="Bing" onclick="b_search()">
+    <input type="button" class="button" value="Yahoo!" onclick="y_search()">
+    <br>
+    <br>
+    <select id="select">
+        <option>選択してください</option>
+        <option value="https://www.google.co.jp/maps/place/">地図 - Google map</option>
+        <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
+        <option value="https://www.youtube.com/results?search_query=">動画 - YouTube内を検索</option>
+        <option value="https://www.amazon.co.jp/s?k=">商品 - Amazon内を検索</option>
+    </select>
+    <input type="button" class="button" value="検索" onclick="start_search()">
+</center>
+<div class="footer">
+    <center>
+    <small>&copy;2024 All Rights Reserved
+        <br>ver.1.2</small>
+    </center>
+</div>
+</form>
+</body>
+</html>
