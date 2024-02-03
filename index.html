@@ -96,8 +96,7 @@
     <h3>検索</h3>
     <center>
     <form>
-    <label>
-    <input type="text" id="search_box">
+    <label><input type="text" id="search_box">
     <input type="reset" style="width: 30px; height: 30px" class="button" value="&times;"></label>
     <br>
     <input type="button" class="button" value="Google" onclick="g_search()">
@@ -106,14 +105,16 @@
     <input type="button" class="button" value="Yahoo!" onclick="y_search()">
     <br>
     <br>
-    <select id="select">
+    <label>
+      <select id="select">
         <option>選択してください</option>
         <option value="https://www.google.co.jp/maps/place/">地図 - Google map</option>
         <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
         <option value="https://www.youtube.com/results?search_query=">動画 - YouTube内を検索</option>
         <option value="https://www.amazon.co.jp/s?k=">商品 - Amazon内を検索</option>
-    </select>
-    <input type="button" class="button" value="検索" onclick="start_search()">
+      </select>
+      <input type="button" class="button" value="検索" onclick="start_search()">
+    </label>
 </center>
     <footer id="footer">
         <a href="Super Search.html"><img alt="SuperSearch" width="30px" src="SS F.ico" id="icon"></a>
