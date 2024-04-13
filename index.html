@@ -3,126 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name=description content="複数の検索サイトを比較できる検索ツールです。私たちは何も収集しません。ほかにも様々なツールを公開しております。ページの公開にはGithubを使用しております。">
     <link rel="icon" href="SS F.ico">
-    <title>SuperSearch</title>
+    <title>Super Search</title>
     <style>
-         @media screen and (max-width: 500px){
-        .button {
-            width: 22%;
-            padding: 4px;
-        }
-        #footer {
-            margin-top: 45%;
-        }
-        }
-        @media screen and (min-width: 501px){ 
-        .button {
-            width: 10%;
-            padding: 4px;
-        }
-        #footer {
-            margin-top: 16%;
-        }
-        }
-        html {
-            background-color: white;
-            font-family: sans-serif, Arial;
-        }
-        .button {
-            background-color: white;
-            color: black;
-        }
-        .button:hover {
-            border-radius: 3px;
-            background-color: rgb(201, 240, 255);
-        }
-        #search_box {
-            width: 75%;
-            padding: 13px;
-            font-size: large;
-            margin-bottom: 5px;
-            margin-top: 95px;
-        }
-        #search_box:hover {
-            background: linear-gradient(to right, white, rgb(201, 240, 255));
-        }
-        input {
-            border: solid 2px black;
-        }
-        select {
-            border: solid 2px black;
-            padding: 4px;
-        }
-        #footer {
-            width: 100%;
-            text-align: center;
-            background-color: rgb(248, 244, 244);
-            margin-bottom: 0%;
-        }
+    #icon_1 {
+        width: 100px;
+    }
+    .button_1 {
+        background-color: white;
+        color: black;
+        width: 100px;
+        height: 30px;
+    }
+    .button_1:hover {
+        border-radius: 3px;
+        background-color: rgb(201, 240, 255);
+    }
+    #reset_button:hover {
+        border-radius: 3px;
+        background-color: rgb(201, 240, 255);
+    }
+    .center {
+        text-align: center;
+    }
+    #textarea {
+        width: 75%;
+        font-size: large;
+        margin-top: 100px;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+    #reset_button {
+        width:fit-content;
+        background-color: white;
+    }
+    .button_1 ,#reset_button ,#textarea {
+        border: solid 2px black;
+    }
+    .bottom {
+        margin-top: 300px;
+        background-color: rgb(237, 235, 235);
+        width: auto;
+        height: 100px;
+    }
     </style>
     <script>
         function g_search() {
-            var word = search_box.value;
+            var word = textarea.value;
             window.open(`https://www.google.com/search?q=${word}`);
         }
         function e_search() {
-            var word = search_box.value;
+            var word = textarea.value;
             window.open(`https://www.ecosia.org/search?method=index&q=${word}`);
         }
         function b_search() {
-            var word = search_box.value;
+            var word = textarea.value;
             window.open(`https://www.bing.com/search?pglt=675&q=${word}`);
         }
-        function y_search() {
-            var word = search_box.value;
-            window.open(`https://search.yahoo.co.jp/search?p=${word}`);
-        }
-        function start_search() {
-            var word = search_box.value;
-            var link = select.value;
-            window.open(`${link}${word}`);
-        }
-        setInterval(() => {
-            var time = new Date().toLocaleString();
-            document.getElementById('timehere').innerHTML = time;
-        })
     </script>
 </head>
 <body>
-    <h1>SuperSearch</h1>
-    <br>
-    <span id="timehere"></span>
-    <h2>検索</h2>
-    <center>
+    <img src="SS F.ico" id="icon_1">
+    <div class="center">
     <form>
-    <label><input type="text" id="search_box">
-    <input type="reset" style="width: 30px; height: 30px" class="button" value="&times;"></label>
-    <br>
-    <input type="button" class="button" value="Google" onclick="g_search()">
-    <input type="button" class="button" value="Ecosia" onclick="e_search()">
-    <input type="button" class="button" value="Bing" onclick="b_search()">
-    <input type="button" class="button" value="Yahoo!" onclick="y_search()">
-    <br>
-    <br>
-    <label>
-      <select id="select">
-        <option>選択してください</option>
-        <option value="https://www.google.co.jp/maps/place/">地図 - Google map</option>
-        <option value="https://www.deepl.com/ja/translator#ja/en/">翻訳 - Deeplで翻訳</option>
-        <option value="https://www.youtube.com/results?search_query=">動画 - YouTube内を検索</option>
-        <option value="https://www.amazon.co.jp/s?k=">商品 - Amazon内を検索</option>
-      </select>
-      <input type="button" class="button" value="検索" onclick="start_search()">
-    </label>
-</center>
-    <footer id="footer">
-        <a href="Super Search.html"><img alt="SuperSearch" width="30px" src="SS F.ico" id="icon"></a>
+        <input type="text" id="textarea" autofocus>
+        <button type="reset" id="reset_button">&#9003;</button>
         <br>
-        <small>&copy;2024 All Rights Reserved
-            <br>ver.2.1</small>
-        </span>
-    </footer>
-</form>
+        <input type="button" id="g_button" class="button_1" value="Google" onclick="g_search()">
+        <input type="button" id="e_button" class="button_1" value="Ecosia" onclick="e_search()">
+        <input type="button" id="b_button" class="button_1" value="Bing" onclick="b_search()">
+    </form>
+    <div class="bottom">
+        <br>
+        <br>
+        &#169; 2024
+        japan-toushika
+        ver.3.0
+    </div>
+    </div>
 </body>
 </html>
